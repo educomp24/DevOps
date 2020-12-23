@@ -1,0 +1,25 @@
+NAGIOS
+
+1) working of nagios, directroies in which configuration files are there, names of configuration files(.cfg) and purpose of configuration files - https://www.edureka.co/blog/nagios-tutorial/
+2) Nagios port no - 5666
+3) Components of nagios --
+		The major parts (and what they do)
+
+		Nagios XI web interface - manage the system
+
+		Nagios Core - the check engine and some core checks
+
+		NDOUtils - Data storage and export.
+
+		Performance Data - stores performance data for graphs
+
+		Agents and Checks - there are a multitude of agents/checks that are used to monitor and 		check things.
+4) Nagios agent for windows - NSClient++
+5) Nagios agent for linux - NRPE
+6) what is NRPE ?
+ -- NRPE is a monitoring agent and protocol that is often used to monitor remote hosts with Nagios. NRPE works with: a client (check_nrpe plugin) that runs on the Nagios server. a daemon that runs on the remote server, processes requests from the client, and returns status information.
+7) objects definition in nagios ?
+ -- contacts, service, host, host groups and commands (example definition only)
+    https://assets.nagios.com/downloads/nagioscore/docs/nagioscore/3/en/objectdefinitions.html
+
+8) Some types of nrpe - check_tcp, check_load, check_cpu, check_http
