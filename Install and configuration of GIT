@@ -23,4 +23,23 @@ git config --global help.autocorrect 1
 git config --global core.editor vim
 git config --list
 
-==================================================================================
+=================================================================================
+
+What is GIT ?
+Git is a distributed version-control system for tracking changes in any set of files, originally designed for coordinating work among programmers cooperating on source code during software development. Its goals include speed, data integrity, and support for distributed, non-linear workflows
+
+What is Version control in GIT ?
+Version control allows you to keep track of your work and helps you to easily explore the changes you have made, be it data, coding scripts, notes, etc.
+
+What is Agile ?
+Agile software development refers to software development methodologies centered round the idea of iterative development, where requirements and solutions evolve through collaboration between self-organizing cross-functional teams. ... Scrum and Kanban are two of the most widely used Agile methodologies.
+
+What is scrum methodology ?
+Scrum is an agile framework for developing, delivering, and sustaining complex products, with an initial emphasis on software development, although it has been used in other fields including research, sales, marketing and advanced technologies
+
+Is GIT is a Distributed or Centralized ?
+Git is a free, open source distributed version control system.
+
+What is the difference between central and distributed version control?
+The main difference between the two classes is that Centralized VCSs keep the history of changes on a central server from which everyone requests the latest version of the work and pushes the latest changes to. ... On the other hand, on a Distributed VCS, everyone has a local copy of the entire work's history
+
