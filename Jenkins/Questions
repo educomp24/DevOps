@@ -1,0 +1,23 @@
+What is jenkins?
+Jenkins is a free and open source automation server. It helps automate the parts of software development related to building, testing, and deploying, facilitating continuous integration and continuous delivery
+
+what are the commands you can use to start Jenkins manually?
+To start Jenkins manually, you can use either of the following
+(Jenkins_url)/restart: Forces a restart without waiting for builds to complete
+(Jenkin_url)/safeRestart: Allows all running builds to complete
+
+Mention some of the useful plugins in Jenkin?
+1) Maven 2 project
+2) Amazon EC2
+3) HTML publisher
+4) Copy artifact
+5) Join
+6) JUnit
+7) PMD
+8) cobertura
+
+What is jenkins shared library ?
+Jenkins Shared library is the concept of having a common pipeline code in the version control system that can be used by any number of pipelines just by referencing it.
+
+Role-based authorization ?
+ - https://plugins.jenkins.io/role-strategy/
