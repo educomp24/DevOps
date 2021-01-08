@@ -1,0 +1,69 @@
+Manifest 1:
+-----------
+site.pp: 
+
+We'll begin by creating the default manifest, site.pp, in the default location
+
+/etc/puppetlabs/code/environments/production/manifests/site.pp
+
+file {'/tmp/hellodevops':                        # resource type file and filename
+
+  ensure  => present,                             # make sure it exists
+
+  mode    => '0644',                              # file permissions
+
+  content => "It works on ${ipaddress_eth0}!\n",  # Print the eth0 IP fact 
+}
+puppet parser validate site.pp # fir syntax errors
+
+
+By default Puppet Server runs the commands in its manifests by default every 30 minutes. If the file is removed, the ensure directive will cause it to be recreated. The mode directive will set the file permissions, and the content directive add content to the directive.
+
+We can also test the manifest on a single node using puppet agent --test. Note that --test is not a flag for a dry run; if it's successful, it will change the agent's configuration.
+
+
+/opt/puppetlabs/bin/puppet agent --test  # run on Nodes
+
+You can check the log file on the Puppet master to see when Puppet last compiled the catalog for an agent, which indicates that any changes required should have been applied.
+
+ tail /var/log/puppetlabs/puppetserver/puppetserver.log
+ 
+ 
+ Manifest 2:
+ -----------
+ site.pp
+ 
+ # execute 'apt-get update'
+exec { 'apt-update':                    # exec resource named 'apt-update'
+  command => '/usr/bin/apt-get update'  # command this resource will run
+}
+
+# install apache2 package
+package { 'apache2':
+  require => Exec['apt-update'],        # require 'apt-update' before installing
+  ensure => installed,
+}
+
+# ensure apache2 service is running
+service { 'apache2':
+  ensure => running,
+}
+
+
+example 3: 
+
+# execute 'apt-get update'
+exec { 'apt-update':                    # exec resource named 'apt-update'
+  command => '/usr/bin/apt-get update'  # command this resource will run
+}
+
+# install nginx package
+package { 'nginx':
+  require => Exec['apt-update'],        # require 'apt-update' before installing
+  ensure => installed,
+}
+
+# ensure nginx service is running
+service { 'nginx':
+  ensure => running,
+}
