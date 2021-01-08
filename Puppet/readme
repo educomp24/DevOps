@@ -1,3 +1,5 @@
+Puppet port no - 8140
+
 PUPPET MASTER:
 puppet master is a service runs a the centralized or main server which used to manage the entier clients to deploy, configure and maintains the infrastructure.
 
