@@ -1,0 +1,11 @@
+web:
+  image: example/my_web_app:latest
+  depends_on:
+    - db
+    - cache
+
+db:
+  image: postgres:latest
+
+cache:
+  image: redis:latest
