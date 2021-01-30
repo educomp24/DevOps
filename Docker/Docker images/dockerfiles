@@ -1,0 +1,45 @@
+Apache - 
+
+FROM ubuntu
+RUN apt-get update
+ENV DEBIAN_FRONTEND=noninteractive
+RUN apt-get install -y apache2
+EXPOSE 80
+WORKDIR /usr/sbin
+CMD ["apachectl", "-D", "FOREGROUND"]
+
+********************************************************************************************
+
+Tomcat -
+
+FROM ubuntu
+RUN apt-get -y update 
+RUN apt-get -y install openjdk-8-jdk wget
+RUN mkdir /opt/tomcat
+# COPY tomcat-8.5.37.tar.gz /tmp
+# RUN cd /tmp && tar xvfz tomcat-8.5.37.tar.gz
+# RUN mv /tmp/apache-tomcat-8.5.37/* /opt/tomcat/
+# RUN rm /tmp/tomcat-8.5.37.tar.gz
+ADD tomcat-8.5.37.tar.gz /tmp
+RUN mv /tmp/apache-tomcat-8.5.37/* /opt/tomcat/
+COPY myapp.war /opt/tomcat/webapps
+EXPOSE 8080
+ENTRYPOINT ["/opt/tomcat/bin/catalina.sh", "run"]  ## JSON Format
+# ENTRYPOINT /opt/tomcat/bin/catalina.sh run  ## Shell Format
+
+********************************************************************************************
+
+Nginyx - 
+
+FROM ubuntu:18.04
+
+RUN apt-get update
+RUN apt-get install -y nginx 
+RUN mkdir /tmp/docker
+RUN touch /tmp/docker/test.txt
+
+EXPOSE 80
+CMD /usr/sbin/nginx -g "daemon off;"
+
+********************************************************************************************
+
